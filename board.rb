@@ -23,4 +23,19 @@ class Board
       puts "ERROR: Square (#{row}, #{column}) has already been taken!"
     end
   end
+
+  def game_won?
+    if @squares[0][0].type == @squares[0][1].type && @squares[0][1].type == @squares[0][2].type || # top row
+       @squares[1][0].type == @squares[1][1].type && @squares[1][1].type == @squares[1][2].type || # middle row
+       @squares[2][0].type == @squares[2][1].type && @squares[2][1].type == @squares[2][2].type || # bottom row
+       @squares[0][0].type == @squares[1][0].type && @squares[1][0].type == @squares[2][0].type || # left column
+       @squares[0][1].type == @squares[1][1].type && @squares[1][1].type == @squares[2][1].type || # middle column
+       @squares[0][2].type == @squares[1][2].type && @squares[1][2].type == @squares[2][2].type || # right column
+       @squares[0][0].type == @squares[1][1].type && @squares[1][1].type == @squares[2][2].type || # left diagonal
+       @squares[0][2].type == @squares[1][1].type && @squares[1][1].type == @squares[2][0].type # right diagonal
+      true
+    else
+      false
+    end
+  end
 end
