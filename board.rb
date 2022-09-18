@@ -42,4 +42,10 @@ class Board
   def full?
     @squares.any? { |row| row.any? { |square| square.type.nil? } }
   end
+
+  def display
+    puts "#{@squares[0][0]} | #{@squares[0][1]} | #{@squares[0][2]}"
+    puts "#{@squares[1][0]} | #{@squares[1][1]} | #{@squares[1][2]}"
+    puts "#{@squares[2][0]} | #{@squares[2][1]} | #{@squares[2][2]}"
+  end
 end
