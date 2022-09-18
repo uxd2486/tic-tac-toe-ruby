@@ -8,4 +8,12 @@ class Square
   def initialize
     @type = nil
   end
+
+  def to_s
+    if type.nil?
+      ' '
+    else
+      type.to_s
+    end
+  end
 end
