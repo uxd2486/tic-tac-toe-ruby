@@ -4,8 +4,6 @@ require_relative 'square'
 
 # this class represents the entire tic-tac-toe board
 class Board
-  attr_accessor :squares
-
   def initialize
     @squares = []
     3.times do
@@ -14,6 +12,15 @@ class Board
         row << Square.new
       end
       @squares << row
+    end
+  end
+
+  def set_square(row, column, symbol)
+    square = @squares[row][column]
+    if square.type.nil?
+      square.type = symbol
+    else
+      puts "ERROR: Square (#{row}, #{column}) has already been taken!"
     end
   end
 end
