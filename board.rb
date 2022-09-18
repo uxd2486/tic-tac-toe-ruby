@@ -38,4 +38,8 @@ class Board
       false
     end
   end
+
+  def full?
+    @squares.any? { |row| row.any? { |square| square.type.nil? } }
+  end
 end
