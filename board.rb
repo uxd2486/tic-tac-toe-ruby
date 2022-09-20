@@ -40,7 +40,7 @@ class Board
   end
 
   def full?
-    @squares.any? { |row| row.any? { |square| square.type.nil? } }
+    @squares.none? { |row| row.any? { |square| square.type.nil? } }
   end
 
   def display
