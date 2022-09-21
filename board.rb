@@ -40,8 +40,12 @@ class Board
   end
 
   def display
-    puts "#{@squares[0]} | #{@squares[1]} | #{@squares[2]}"
-    puts "#{@squares[3]} | #{@squares[4]} | #{@squares[5]}"
-    puts "#{@squares[6]} | #{@squares[7]} | #{@squares[8]}"
+    puts <<-HEREDOC
+       #{@squares[0]} | #{@squares[1]} | #{@squares[2]}
+      ---+---+---
+       #{@squares[3]} | #{@squares[4]} | #{@squares[5]}
+      ---+---+---
+       #{@squares[6]} | #{@squares[7]} | #{@squares[8]}
+    HEREDOC
   end
 end
