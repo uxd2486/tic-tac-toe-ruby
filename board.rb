@@ -6,18 +6,14 @@ require_relative 'square'
 class Board
   def initialize
     @squares = []
-    3.times do
-      row = []
-      3.times do
-        row << Square.new
-      end
-      @squares << row
+    9.times do |i|
+      @squares << Square.new(i)
     end
   end
 
-  def set_square(row, column, symbol)
-    square = @squares[row][column]
-    if square.type.nil?
+  def set_square(number, symbol)
+    square = @squares[number]
+    if square.type.is_a? Integer
       square.type = symbol
     else
       puts "ERROR: Square (#{row}, #{column}) has already been taken!"
@@ -25,14 +21,14 @@ class Board
   end
 
   def game_won?
-    if @squares[0][0].type == @squares[0][1].type && @squares[0][1].type == @squares[0][2].type || # top row
-       @squares[1][0].type == @squares[1][1].type && @squares[1][1].type == @squares[1][2].type || # middle row
-       @squares[2][0].type == @squares[2][1].type && @squares[2][1].type == @squares[2][2].type || # bottom row
-       @squares[0][0].type == @squares[1][0].type && @squares[1][0].type == @squares[2][0].type || # left column
-       @squares[0][1].type == @squares[1][1].type && @squares[1][1].type == @squares[2][1].type || # middle column
-       @squares[0][2].type == @squares[1][2].type && @squares[1][2].type == @squares[2][2].type || # right column
-       @squares[0][0].type == @squares[1][1].type && @squares[1][1].type == @squares[2][2].type || # left diagonal
-       @squares[0][2].type == @squares[1][1].type && @squares[1][1].type == @squares[2][0].type # right diagonal
+    if @squares[0].type == @squares[1].type && @squares[1].type == @squares[2].type || # top row
+       @squares[3].type == @squares[4].type && @squares[4].type == @squares[5].type || # middle row
+       @squares[6].type == @squares[7].type && @squares[7].type == @squares[8].type || # bottom row
+       @squares[0].type == @squares[3].type && @squares[3].type == @squares[6].type || # left column
+       @squares[1].type == @squares[4].type && @squares[4].type == @squares[7].type || # middle column
+       @squares[2].type == @squares[5].type && @squares[5].type == @squares[8].type || # right column
+       @squares[0].type == @squares[4].type && @squares[4].type == @squares[8].type || # left diagonal
+       @squares[2].type == @squares[4].type && @squares[4].type == @squares[6].type # right diagonal
       true
     else
       false
@@ -40,12 +36,12 @@ class Board
   end
 
   def full?
-    @squares.none? { |row| row.any? { |square| square.type.nil? } }
+    @squares.none? { |square| square.type.is_a? Integer }
   end
 
   def display
-    puts "#{@squares[0][0]} | #{@squares[0][1]} | #{@squares[0][2]}"
-    puts "#{@squares[1][0]} | #{@squares[1][1]} | #{@squares[1][2]}"
-    puts "#{@squares[2][0]} | #{@squares[2][1]} | #{@squares[2][2]}"
+    puts "#{@squares[0]} | #{@squares[1]} | #{@squares[2]}"
+    puts "#{@squares[3]} | #{@squares[4]} | #{@squares[5]}"
+    puts "#{@squares[6]} | #{@squares[7]} | #{@squares[8]}"
   end
 end

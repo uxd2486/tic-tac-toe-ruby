@@ -5,13 +5,12 @@ require_relative 'board'
 def play_game
   board = Board.new
   cur_player = :X
-  puts 'Enter the square you wish to play as "[row],[column]", no spaces'
+  board.display
+  puts 'Enter the number of the square you wish to play: '
   until board.full?
     puts "Player #{cur_player}: "
-    input = gets.chomp.split(',')
-    row = input[0].to_i
-    column = input[1].to_i
-    result = board.set_square(row, column, cur_player)
+    number = gets.chomp.to_i
+    result = board.set_square(number, cur_player)
     next if result != cur_player
 
     board.display

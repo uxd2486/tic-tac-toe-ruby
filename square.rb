@@ -5,15 +5,11 @@
 class Square
   attr_accessor :type
 
-  def initialize
-    @type = nil
+  def initialize(initial)
+    @type = initial
   end
 
   def to_s
-    if type.nil?
-      ' '
-    else
-      type.to_s
-    end
+    @type.to_s
   end
 end
