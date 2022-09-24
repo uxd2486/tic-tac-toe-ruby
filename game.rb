@@ -3,6 +3,7 @@
 require_relative 'board'
 
 def play_game
+  puts "Let's begin!"
   board = Board.new
   cur_player = :X
   board.display
@@ -25,3 +26,5 @@ def play_game
     cur_player = cur_player == :X ? :O : :X
   end
 end
+
+play_game
