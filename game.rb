@@ -7,9 +7,9 @@ def play_game
   board = Board.new
   cur_player = :X
   board.display
-  puts 'Enter the number of the square you wish to play: '
+  puts 'Enter the number of the square you wish to play'
   until board.full?
-    puts "Player #{cur_player}: "
+    print "Player #{cur_player}: "
     number = gets.chomp
     unless number.to_i.to_s == number
       puts 'ERROR: Please enter a number.'
