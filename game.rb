@@ -9,8 +9,12 @@ def play_game
   puts 'Enter the number of the square you wish to play: '
   until board.full?
     puts "Player #{cur_player}: "
-    number = gets.chomp.to_i
-    result = board.set_square(number, cur_player)
+    number = gets.chomp
+    unless number.to_i.to_s == number
+      puts 'ERROR: Please enter a number.'
+      next
+    end
+    result = board.set_square(number.to_i, cur_player)
     next if result != cur_player
 
     board.display

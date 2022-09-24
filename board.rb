@@ -12,11 +12,15 @@ class Board
   end
 
   def set_square(number, symbol)
+    if number.negative? || number > 8
+      puts 'ERROR: Please enter a valid square number.'
+      return
+    end
     square = @squares[number]
     if square.type.is_a? Integer
       square.type = symbol
     else
-      puts "ERROR: Square (#{row}, #{column}) has already been taken!"
+      puts "ERROR: Square #{number} has already been taken!"
     end
   end
 
