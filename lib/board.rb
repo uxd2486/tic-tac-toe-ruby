@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'square'
+require_relative '../are'
 
 # this class represents the entire tic-tac-toe board
 class Board
